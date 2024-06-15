@@ -12,7 +12,7 @@
         tex = pkgs.texlive.combine {
           inherit (pkgs.texlive)
             scheme-basic latex-bin babel babel-russian babel-english booktabs
-            etoolbox fontspec microtype pgf;
+            etoolbox fontspec koma-script microtype pgf;
         };
       in rec {
         packages = {

@@ -1,30 +1,49 @@
-\documentclass[11pt]{article}
+\documentclass[14pt]{scrartcl}
 
-\usepackage{fontspec}
-\setmainfont{Liberation Serif}
-\setsansfont{Liberation Sans}
-\setmonofont{Liberation Mono}
+\usepackage{fontspec} \setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans} \setmonofont{Liberation Mono}
 \usepackage[main=russian,english]{babel}
 
-\usepackage[a5paper,top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
+\usepackage[a4paper,top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
 
 \usepackage{amsfonts, amssymb, amsmath}
 
 \usepackage{microtype}
 
-\usepackage{graphicx}
-\graphicspath{{./images/}}
+\usepackage{graphicx} \graphicspath{{./images/}}
 
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  filecolor=magenta,
-  urlcolor=cyan,
-  pdftitle={Нахождение быстрейшего пути},
-  pdfauthor={Максимов Матвей (C23-201-1)},
- }
+\usepackage{hyperref} \hypersetup{ colorlinks=true, linkcolor=blue,
+  filecolor=magenta, urlcolor=cyan, pdftitle={Нахождение быстрейшего
+    пути}, pdfauthor={Максимов Матвей (C23-201-1)}, }
+
+\newcommand{\hunder}[1]{\underline{\hspace{#1}}}
 
 \begin{document}
+\begin{titlepage}
 
+  \begin{center}
+    \uppercase{минобрнауки россии} \\
+    Федеральное государственное бюджетное образовательное \\
+    учреждение высшего образования \\
+    <<Ижевский государственный технический университет имени М.Т.Калашникова>> \\
+    Факультет <<Приборостроительный>>\\
+    Кафедра <<Радиотехника>>\\
+  \end{center}
+
+  \vfill{}
+
+  \begin{flushright}
+    Работа защищена с оценкой \\
+    <<\hunder{4cm}>> \\
+    Дата \hunder{3cm} \\
+    Подпись \hunder{2cm}/\hunder{4cm}
+  \end{flushright}
+
+\end{titlepage}
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: luatex
+%%% End:

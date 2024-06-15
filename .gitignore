@@ -1,3 +1,7 @@
 .direnv
 auto
 result
+.cache/texmf-var/luatex-cache/generic
+main.aux
+main.log
+main.out
