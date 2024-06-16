@@ -1,16 +1,35 @@
-\documentclass[14pt]{scrartcl}
+\documentclass[]{scrartcl}
 
 \usepackage{fontspec} \setmainfont{Liberation Serif}
 \setsansfont{Liberation Sans} \setmonofont{Liberation Mono}
 \usepackage[main=russian,english]{babel}
 
-\usepackage[a4paper,top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
+\usepackage[a4paper,top=20mm,bottom=30mm,left=20mm,right=20mm]{geometry}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=nty]{biblatex}
+\usepackage{csquotes} \addbibresource{external.bib}
 
 \usepackage{amsfonts, amssymb, amsmath}
 
-\usepackage{microtype}
+\usepackage{microtype} %\usepackage{cmap}
 
 \usepackage{graphicx} \graphicspath{{./images/}}
+
+\usepackage{amsmath} \usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{--}
+
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedleft\arraybackslash}X}
+\usepackage{booktabs} \usepackage{multirow}
+
+% \usepackage{tocloft}
+% \renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth}
+% \bfseries\MakeUppercase} \renewcommand\cftsecdotsep{\cftdot}
+% \cftsetpnumwidth{7pt}
+
+\usepackage{hyphenat} \hyphenation{крат-чай-ше-го}
+\hyphenation{кон-крет-но} \hyphenation{не-пос-ред-ствен-на-я}
+\hyphenation{син-та-кси-са}
 
 \usepackage{hyperref} \hypersetup{ colorlinks=true, linkcolor=blue,
   filecolor=magenta, urlcolor=cyan, pdftitle={Нахождение быстрейшего
@@ -33,13 +52,196 @@
   \vfill{}
 
   \begin{flushright}
-    Работа защищена с оценкой \\
-    <<\hunder{4cm}>> \\
-    Дата \hunder{3cm} \\
-    Подпись \hunder{2cm}/\hunder{4cm}
+    % Работа защищена с оценкой \\
+    % <<\hunder{5.5cm}>> \\
+    % Дата \hunder{4.5cm} \\
+    % Подпись \hunder{2cm}/\hunder{2cm}
+    \begin{tabularx}{0.4\textwidth}{X}
+      Работа защищена с оценкой \\
+      <<\hrulefill{}>> \\
+      Дата \hrulefill{} \\
+      Подпись \hrulefill{}/\hrulefill{}
+    \end{tabularx}
   \end{flushright}
 
+  \vfill{}
+
+  \begin{center}
+    \textbf{Курсовая работа} \\
+    по дисциплине <<Современные языки программирования>> \\
+    Тема <<Разработка программы для логической задачи на языке программирования C++>> \\
+  \end{center}
+
+  \vfill{}
+
+  \begin{center}
+    \begin{tabularx}{0.95\textwidth}{X p{5.1cm} r}
+      Выполнил& & \\
+      Студент гр. С23-201-1 & $\underset{\text{дата, подпись}}{\underline{\text{\today{}}\hspace{0.185\textwidth}}}$ & Максимов М. А. \\
+      Проверил&& \\
+      к.п.н., доцент кафедры <<Радиотехника>> & $\underset{\text{дата, подпись}}{\underline{\hspace{0.3\textwidth}}}$ & Сидорина В. А. \\
+    \end{tabularx}
+  \end{center}
+
+  \vfill{}
+
+\begin{flushleft}
+  Рецензия: \\
+  степень достижения поставленной цели работы \hrulefill{} \\
+  полнота разработки темы \hrulefill{ } \\
+  уровень самостоятельности работы обучающегося \hrulefill{} \\
+  недостатки работы \hrulefill{}\\
+\end{flushleft}
+
 \end{titlepage}
+
+\tableofcontents{}
+
+\newpage{}
+\section*{Введение}
+\addcontentsline{toc}{section}{Введение}
+
+\textit{Целью} курсовой работы является демонстрация знаний,
+полученных при изучении дисциплины «Информатика». В данной работе
+необходимо поставить конкретные задачи по заданной теме, которые будут
+определять весь ход выполнения курсовой работы.
+
+\textit{Актуальность} данной темы (разработка программы для нахождения
+кратчайшего пути между двумя точками) связана с тем, что поиск и
+построение наиболее оптимального пути является важной задачей во
+многих сферах: от доставки товаров по всему миру до оптимизации работы
+с графами в прикладных
+целях\cite{Sokolov-graph_in_logistic,Vardomatskaya-optimization_with_graphs}. Последнее
+особено важно, так как графы используются во многих алгоритмах и
+повзоляют проще отобразить некоторую структуру в программном коде.
+
+Выполнения курсовой работы требует творческого подхода и всестороннего
+исследования поставленных задач.
+
+\emph{Основными задачами курсовой работы являются:}
+\begin{itemize}
+\item применение знаний и умений работать с языком программирования к
+  конкретно поставленному заданию;
+\item разработка словесного алгоритма программы для обучения
+  нахождению кратчайшего пути между точками в соответствии с
+  поставленными условиями;
+\item реализация данного алгоритма на языке программирования C++,
+  т.е. непосредственная разработка алгоритма в программе C++ с помощью
+  ее синтаксиса.
+\end{itemize}
+
+\emph{Основные этапы курсовой работы:}
+\begin{enumerate}
+\item Анализ поставленной задача;
+\item Выбор обоснования и изложения метода решения поставленной
+  задачи;
+\item Построение алгоритма решения поставленной задачи;
+\item Создание и отладка программы;
+\item Разработка комплекта тестов для проверки правильности работы
+  программы;
+\item Оформление пояснительной записки;
+\item Защита курсовой работы;
+\end{enumerate}
+
+Таким образом, в процессе выполнения работы необходимо научиться
+работать с литературой и интернет-ресурсами, список которых включен в
+конец курсовой работы.
+
+\newpage{}
+\section{Постановка задач}
+
+Выполнение задания следует начинать с четкого уяснения поставленной
+задачи. Задача курсовой работы звучит следующим образом: найти
+кратчайший путь между двумя шариками, расположенными на двух
+произвольных клетках в поле 10x10 клеток, при условии, что движение
+возможно толькко по вертикали, горизонтали и диагонали. То есть в
+начале задаётся две случайные координаты, в которых распологаются
+шарики, и надо найти и построить кратчайший путь между ними.
+
+Данная задача относится к своего рода обучающим задачам, так как чтобы
+найти кратчайший путь между двумя точками, необходимо обучиться
+алгоритму решения такой задачи. Метод решения данной задачи должен
+ясно описывать, каким образом получается исходный результат.
+
+Существует несколько методов решения такой задачи. Необходимо выбрать
+наиболее оптимальный. Критерии выбора метода решения данной задачи, на
+которые следует опираться, следующие:
+\begin{enumerate}
+\item Легкость реализации в виде алгоритма;
+\item Время решения задачи;
+\item Возможность проверки правильности решения.
+\end{enumerate}
+
+\newpage{}
+\section{Математические методы и средства решения задач}
+
+\textbf{Метод решения поставленной задачи} обязательно должен
+опираться на некоторый матетимаческий аппарат. Ниже приведены
+математический метод решения данной задачи:
+\begin{enumerate}
+\item Соответственно вычитаем из координат второй точки координаты
+  первой точки;
+\item Если по двум координатам получившиеся значения равны 0, то точки
+  совпадают, решение не существует;
+\item\label{item:eq-noneq} Если только по одной из координат
+  получившееся значение равно 0, то точки стоят на одной
+  прямой. Следовательно надо идти на прямую к точке, то есть в сторону
+  приближения второго числа к нулю;
+\item Если оба получившихся числа равны друг другу, то точки стоят
+  также на одной прямой, но по диагонали. Следовательно надо идти на
+  прямую к точке, то есть в сторону приближения обоих чисел к 0;
+\item Если ни одно из предыдущих условий не соотвествует
+  действительности, то точки не находятся на одной
+  прямой. Следовательно надо идти в сторону приближения обоих чисел к
+  нулю. После того, как одно из чисел станет равным нулю, можно будет
+  воспользоваться пунктом~\ref{item:eq-noneq}.
+\end{enumerate}
+
+\newpage{}
+\section{Описание данных}
+
+\begin{table}[htpb]
+  \centering
+  \begin{tabularx}{\textwidth}[htpb]{l c L}
+    \toprule
+    Название в задаче & Тип&Смысловое понятие\\
+    \toprule
+    \multicolumn{3}{c}{Входные данные} \\
+    \midrule
+    \verb|point1| & \verb|std::vector<uint, uint>| & Координаты первой точки \\
+    \verb|point2| & \verb|std::vector<uint, uint>| & Координаты второй точки \\
+    \bottomrule
+    \multicolumn{3}{c}{Промежуточные данные} \\
+    \midrule
+    \verb|subtraction_point|&\verb|std::vector<uint, uint>|&Координаты точки, получившейся вычитанием из второй точки первой\\
+    \bottomrule
+    \multicolumn{3}{c}{Выходные данные} \\
+    \midrule
+    \verb|result|&\verb|std::array<std::vector<uint, uint>>|&Массив координат поличившегося пути\\
+    \bottomrule
+  \end{tabularx}
+  \caption{Описание данных}
+  \label{tab:description-data}
+\end{table}
+
+\newpage{}
+\section{Алгоритм задачи}
+
+\newpage{}
+\section{Программа на языке программирования C++}
+
+\newpage{}
+\section{Тестовый пример}
+
+\newpage{}
+\section{Руководство пользователя для работы с программой}
+
+\newpage{}
+\section*{Заключение}
+\addcontentsline{toc}{section}{Заключение}
+
+\printbibliography[ heading=bibintoc, ]
+
 \end{document}
 
 %%% Local Variables:

@@ -11,8 +11,9 @@
         pkgs = nixpkgs.legacyPackages.${system};
         tex = pkgs.texlive.combine {
           inherit (pkgs.texlive)
-            scheme-basic latex-bin babel babel-russian babel-english booktabs
-            etoolbox fontspec koma-script microtype pgf;
+            scheme-basic latex-bin latexmk babel babel-russian babel-english booktabs
+            etoolbox fontspec koma-script microtype pgf cmap hyphenat tocloft
+            biblatex biblatex-gost biber csquotes amsmath datetime fmtcount xkeyval multirow;
         };
       in rec {
         packages = {
@@ -21,9 +22,10 @@
             src = self;
             buildInputs = [ pkgs.coreutils tex ];
             phases = [ "unpackPhase" "buildPhase" "installPhase" ];
+            SOURCE_DATE_EPOCH = self.sourceInfo.lastModified;
             buildPhase = ''
               mkdir -p .cache/texmf-var
-              lualatex -interaction=nonstopmode main.tex
+              latexmk -interaction=nonstopmode -pdf -lualatex main.tex
             '';
             env = {
               PATH = "${pkgs.lib.makeBinPath buildInputs}";
@@ -39,7 +41,8 @@
           develop = pkgs.stdenvNoCC.mkDerivation rec {
             name = "find-faster-path";
             src = self;
-            buildInputs = [ pkgs.coreutils pkgs.texliveFull pkgs.ispell ];
+            buildInputs =
+              [ pkgs.coreutils pkgs.texliveFull pkgs.ispell pkgs.texlab ];
             phases = [ "unpackPhase" "buildPhase" "installPhase" ];
             buildPhase = ''
               export PATH="${pkgs.lib.makeBinPath buildInputs}";
