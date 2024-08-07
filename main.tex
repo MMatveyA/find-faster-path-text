@@ -1,97 +1,108 @@
-\documentclass[]{scrartcl}
+\documentclass[toc=sectionentrywithdots]{scrartcl}
 
-\usepackage{fontspec} \setmainfont{Liberation Serif}
-\setsansfont{Liberation Sans} \setmonofont{Liberation Mono}
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans} 
+\setmonofont{Liberation Mono}
 \usepackage[main=russian,english]{babel}
 
 \usepackage[a4paper,top=20mm,bottom=30mm,left=20mm,right=20mm]{geometry}
 
 \usepackage[backend=biber,style=gost-numeric,sorting=nty]{biblatex}
-\usepackage{csquotes} \addbibresource{external.bib}
+\usepackage{csquotes} 
+\addbibresource{external.bib}
 
 \usepackage{amsfonts, amssymb, amsmath}
 
-\usepackage{microtype} %\usepackage{cmap}
+\usepackage{microtype} 
 
-\usepackage{graphicx} \graphicspath{{./images/}}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
 
-\usepackage{amsmath} \usepackage[ddmmyyyy]{datetime}
-\renewcommand{\dateseparator}{--}
+\usepackage{amsmath}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
 
 \usepackage{tabularx}
 \newcolumntype{L}{>{\raggedleft\arraybackslash}X}
-\usepackage{booktabs} \usepackage{multirow}
+\usepackage{booktabs} 
+\usepackage{multirow}
 
-% \usepackage{tocloft}
-% \renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth}
-% \bfseries\MakeUppercase} \renewcommand\cftsecdotsep{\cftdot}
-% \cftsetpnumwidth{7pt}
+\usepackage{algorithm2e} 
+\RestyleAlgo{ruled}
 
-\usepackage{hyphenat} \hyphenation{крат-чай-ше-го}
-\hyphenation{кон-крет-но} \hyphenation{не-пос-ред-ствен-на-я}
+\usepackage{hyphenat} 
+\hyphenation{Ин-фор-ма-ти-ка}
+\hyphenation{крат-чай-ше-го}
+\hyphenation{кон-крет-но} 
+\hyphenation{на-хо-дят-ся}
+\hyphenation{не-пос-ред-ствен-на-я}
+\hyphenation{пос-тав-лен-ных}
 \hyphenation{син-та-кси-са}
 
-\usepackage{hyperref} \hypersetup{ colorlinks=true, linkcolor=blue,
-  filecolor=magenta, urlcolor=cyan, pdftitle={Нахождение быстрейшего
-    пути}, pdfauthor={Максимов Матвей (C23-201-1)}, }
+\usepackage{hyperref} 
+\hypersetup{ 
+  colorlinks=true, 
+  linkcolor=blue,
+  filecolor=magenta, 
+  urlcolor=cyan, 
+  pdftitle={Нахождение быстрейшего пути},
+  pdfauthor={Максимов Матвей (C23-201-1)}, 
+}
 
 \newcommand{\hunder}[1]{\underline{\hspace{#1}}}
 
 \begin{document}
 \begin{titlepage}
 
-  \begin{center}
-    \uppercase{минобрнауки россии} \\
-    Федеральное государственное бюджетное образовательное \\
-    учреждение высшего образования \\
-    <<Ижевский государственный технический университет имени М.Т.Калашникова>> \\
-    Факультет <<Приборостроительный>>\\
-    Кафедра <<Радиотехника>>\\
-  \end{center}
+	\begin{center}
+		\uppercase{минобрнауки россии} \\
+		Федеральное государственное бюджетное образовательное \\
+		учреждение высшего образования \\
+		<<Ижевский государственный технический университет имени М.Т.Калашникова>> \\
+		Факультет <<Приборостроительный>>\\
+		Кафедра <<Радиотехника>>\\
+	\end{center}
 
-  \vfill{}
+	\vfill{}
 
-  \begin{flushright}
-    % Работа защищена с оценкой \\
-    % <<\hunder{5.5cm}>> \\
-    % Дата \hunder{4.5cm} \\
-    % Подпись \hunder{2cm}/\hunder{2cm}
-    \begin{tabularx}{0.4\textwidth}{X}
-      Работа защищена с оценкой \\
-      <<\hrulefill{}>> \\
-      Дата \hrulefill{} \\
-      Подпись \hrulefill{}/\hrulefill{}
-    \end{tabularx}
-  \end{flushright}
+	\begin{flushright}
+		\begin{tabularx}{0.4\textwidth}{X}
+			Работа защищена с оценкой \\
+			<<\hrulefill{}>>          \\
+			Дата \hrulefill{}         \\
+			Подпись \hrulefill{}/\hrulefill{}\hrulefill{}
+		\end{tabularx}
+	\end{flushright}
 
-  \vfill{}
+	\vfill{}
 
-  \begin{center}
-    \textbf{Курсовая работа} \\
-    по дисциплине <<Современные языки программирования>> \\
-    Тема <<Разработка программы для логической задачи на языке программирования C++>> \\
-  \end{center}
+	\begin{center}
+		\textbf{Курсовая работа} \\
+		по дисциплине <<Современные языки программирования>> \\
+		Тема <<Разработка программы для логической задачи на языке программирования C++>> \\
+	\end{center}
 
-  \vfill{}
+	\vfill{}
 
-  \begin{center}
-    \begin{tabularx}{0.95\textwidth}{X p{5.1cm} r}
-      Выполнил& & \\
-      Студент гр. С23-201-1 & $\underset{\text{дата, подпись}}{\underline{\text{\today{}}\hspace{0.185\textwidth}}}$ & Максимов М. А. \\
-      Проверил&& \\
-      к.п.н., доцент кафедры <<Радиотехника>> & $\underset{\text{дата, подпись}}{\underline{\hspace{0.3\textwidth}}}$ & Сидорина В. А. \\
-    \end{tabularx}
-  \end{center}
+	\begin{center}
+		\begin{tabularx}{0.95\textwidth}{X p{5.1cm} r}
+			Выполнил                                &                                                                                        &                \\
+			Студент гр. С23-201-1                   & $\underset{\text{дата, подпись}}{\underline{\text{\today{}}\hspace{0.195\textwidth}}}$ & Максимов М. А. \\
+			Проверил                                &                                                                                        &                \\
+			к.п.н., доцент кафедры <<Радиотехника>> & $\underset{\text{дата, подпись}}{\underline{\hspace{0.3\textwidth}}}$                  & Сидорина В. А. \\
+		\end{tabularx}
+	\end{center}
 
-  \vfill{}
+	\vfill{}
 
-\begin{flushleft}
-  Рецензия: \\
-  степень достижения поставленной цели работы \hrulefill{} \\
-  полнота разработки темы \hrulefill{ } \\
-  уровень самостоятельности работы обучающегося \hrulefill{} \\
-  недостатки работы \hrulefill{}\\
-\end{flushleft}
+	\begin{flushleft}
+		Рецензия:  \\
+		степень достижения поставленной цели работы \hrulefill{} \\
+		полнота разработки темы \hrulefill{ } \\
+		уровень самостоятельности работы обучающегося \hrulefill{} \\
+		недостатки работы \hrulefill{}\\
+	\end{flushleft}
 
 \end{titlepage}
 
@@ -113,34 +124,35 @@
 с графами в прикладных
 целях\cite{Sokolov-graph_in_logistic,Vardomatskaya-optimization_with_graphs}. Последнее
 особено важно, так как графы используются во многих алгоритмах и
-повзоляют проще отобразить некоторую структуру в программном коде.
+повзоляют проще отобразить некоторую структуру в программном
+коде~\cite{Брюске1998-графыАлгоритмов}.
 
 Выполнения курсовой работы требует творческого подхода и всестороннего
 исследования поставленных задач.
 
 \emph{Основными задачами курсовой работы являются:}
 \begin{itemize}
-\item применение знаний и умений работать с языком программирования к
-  конкретно поставленному заданию;
-\item разработка словесного алгоритма программы для обучения
-  нахождению кратчайшего пути между точками в соответствии с
-  поставленными условиями;
-\item реализация данного алгоритма на языке программирования C++,
-  т.е. непосредственная разработка алгоритма в программе C++ с помощью
-  ее синтаксиса.
+	\item применение знаний и умений работать с языком программирования к
+	      конкретно поставленному заданию;
+	\item разработка словесного алгоритма программы для обучения
+	      нахождению кратчайшего пути между точками в соответствии с
+	      поставленными условиями;
+	\item реализация данного алгоритма на языке программирования C++,
+	      т.е. непосредственная разработка алгоритма в программе C++ с помощью
+	      ее синтаксиса.
 \end{itemize}
 
 \emph{Основные этапы курсовой работы:}
 \begin{enumerate}
-\item Анализ поставленной задача;
-\item Выбор обоснования и изложения метода решения поставленной
-  задачи;
-\item Построение алгоритма решения поставленной задачи;
-\item Создание и отладка программы;
-\item Разработка комплекта тестов для проверки правильности работы
-  программы;
-\item Оформление пояснительной записки;
-\item Защита курсовой работы;
+	\item Анализ поставленной задача;
+	\item Выбор обоснования и изложения метода решения поставленной
+	      задачи;
+	\item Построение алгоритма решения поставленной задачи;
+	\item Создание и отладка программы;
+	\item Разработка комплекта тестов для проверки правильности работы
+	      программы;
+	\item Оформление пояснительной записки;
+	\item Защита курсовой работы;
 \end{enumerate}
 
 Таким образом, в процессе выполнения работы необходимо научиться
@@ -167,68 +179,130 @@
 наиболее оптимальный. Критерии выбора метода решения данной задачи, на
 которые следует опираться, следующие:
 \begin{enumerate}
-\item Легкость реализации в виде алгоритма;
-\item Время решения задачи;
-\item Возможность проверки правильности решения.
+	\item Легкость реализации в виде алгоритма;
+	\item Время решения задачи;
+	\item Возможность проверки правильности решения.
 \end{enumerate}
 
 \newpage{}
 \section{Математические методы и средства решения задач}
 
 \textbf{Метод решения поставленной задачи} обязательно должен
-опираться на некоторый матетимаческий аппарат. Ниже приведены
+опираться на некоторый математический аппарат. Ниже приведен
 математический метод решения данной задачи:
-\begin{enumerate}
-\item Соответственно вычитаем из координат второй точки координаты
-  первой точки;
-\item Если по двум координатам получившиеся значения равны 0, то точки
-  совпадают, решение не существует;
-\item\label{item:eq-noneq} Если только по одной из координат
-  получившееся значение равно 0, то точки стоят на одной
-  прямой. Следовательно надо идти на прямую к точке, то есть в сторону
-  приближения второго числа к нулю;
-\item Если оба получившихся числа равны друг другу, то точки стоят
-  также на одной прямой, но по диагонали. Следовательно надо идти на
-  прямую к точке, то есть в сторону приближения обоих чисел к 0;
-\item Если ни одно из предыдущих условий не соотвествует
-  действительности, то точки не находятся на одной
-  прямой. Следовательно надо идти в сторону приближения обоих чисел к
-  нулю. После того, как одно из чисел станет равным нулю, можно будет
-  воспользоваться пунктом~\ref{item:eq-noneq}.
-\end{enumerate}
+% \begin{enumerate}
+% 	\item Соответственно вычитаем из координат второй точки координаты
+% 	      первой точки;
+% 	\item Если по двум координатам получившиеся значения равны 0, то точки
+% 	      совпадают, решение не существует;
+% 	\item\label{item:eq-noneq} Если только по одной из координат
+% 	      получившееся значение равно 0, то точки стоят на одной
+% 	      прямой. Следовательно надо идти на прямую к точке, то есть в сторону
+% 	      приближения второго числа к нулю;
+% 	\item Если оба получившихся числа равны друг другу, то точки стоят
+% 	      также на одной прямой, но по диагонали. Следовательно надо идти на
+% 	      прямую к точке, то есть в сторону приближения обоих чисел к 0;
+% 	\item Если ни одно из предыдущих условий не соотвествует
+% 	      действительности, то точки не находятся на одной
+% 	      прямой. Следовательно надо идти в сторону приближения обоих чисел к
+% 	      нулю. После того, как одно из чисел станет равным нулю, можно будет
+% 	      воспользоваться пунктом~\ref{item:eq-noneq}.
+% \end{enumerate}
 
 \newpage{}
 \section{Описание данных}
 
 \begin{table}[htpb]
-  \centering
-  \begin{tabularx}{\textwidth}[htpb]{l c L}
-    \toprule
-    Название в задаче & Тип&Смысловое понятие\\
-    \toprule
-    \multicolumn{3}{c}{Входные данные} \\
-    \midrule
-    \verb|point1| & \verb|std::vector<uint, uint>| & Координаты первой точки \\
-    \verb|point2| & \verb|std::vector<uint, uint>| & Координаты второй точки \\
-    \bottomrule
-    \multicolumn{3}{c}{Промежуточные данные} \\
-    \midrule
-    \verb|subtraction_point|&\verb|std::vector<uint, uint>|&Координаты точки, получившейся вычитанием из второй точки первой\\
-    \bottomrule
-    \multicolumn{3}{c}{Выходные данные} \\
-    \midrule
-    \verb|result|&\verb|std::array<std::vector<uint, uint>>|&Массив координат поличившегося пути\\
-    \bottomrule
-  \end{tabularx}
-  \caption{Описание данных}
-  \label{tab:description-data}
+	\centering
+	\begin{tabularx}{\textwidth}[htpb]{l c L}
+		\toprule
+		Название в задаче        & Тип                                         & Смысловое понятие                                                \\
+		\toprule
+		\multicolumn{3}{c}{Входные данные}                                                                                                        \\
+		\midrule
+		\verb|point1|            & \verb|std::vector<uint, uint>|              & Координаты первой точки                                          \\
+		\verb|point2|            & \verb|std::vector<uint, uint>|              & Координаты второй точки                                          \\
+		\bottomrule
+		\multicolumn{3}{c}{Промежуточные данные}                                                                                                  \\
+		\midrule
+		\verb|subtraction_point| & \verb|std::vector<uint, uint>|              & Координаты точки, получившейся вычитанием из второй точки первой \\
+		\bottomrule
+		\multicolumn{3}{c}{Выходные данные}                                                                                                       \\
+		\midrule
+		\verb|result|            & \verb|std::vector<std::vector<uint, uint>>| & Массив координат поличившегося пути                              \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Описание данных}
+	\label{tab:description-data}
 \end{table}
 
 \newpage{}
 \section{Алгоритм задачи}
 
+Существует несколько способов описания алгоритма. Рассмотрим словесное
+описание алгоритма. В словесном описании алгоритм выполнения выглядит
+следующим образом:
+
+\begin{enumerate}
+	\item С клавиатуры вводятся две пары координаты;
+	\item Из координаты точки \verb|point2| соответственно вычитаются
+	      координаты точки \verb|point1|, результат заносится в переменную
+	      \verb|subtraction_point|;
+	\item Если \verb|subtraction_point.x| равен 0 и
+	      \verb|subtraction_point.y| равен 0, то обе точки находятся в одной
+	      клетке, следовательно решения не существует (получается пустое
+	      перемещение).
+	\item В противном случае из координат переменной
+	      \verb|subtraction_point|, если эта координата не равна нулю,
+	      вычитается равная по знаку единица до тех пор, пока точки не
+	      совпадут. Дополнительное получающиеся координаты завписываются в
+	      массив \verb|result|.
+\end{enumerate}
+
+Тот же алгоритм, выполненный в варианте псевдокода.  \IncMargin{1em}
+\begin{algorithm}
+	\caption{Алгоритм нахождения кратчайшего пути}
+	\LinesNumbered{}
+
+	\SetKwData{Left}{left}\SetKwData{This}{this}\SetKwData{Up}{up}
+	\SetKwFunction{Union}{Union}\SetKwFunction{FindCompress}{FindCompress}
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+
+	\Input{Две пары координат} \Output{Массив координта для достижения
+		цели} \KwData{$x_1 \geqslant 0$, $x_2\geqslant 0$, $y_1\geqslant 0$, $y_2 \geqslant 0$} \BlankLine
+
+	point1 \gets{($x_1$, $y_{1}$)}\;
+
+	point2 \gets{($x_2$, $y_2$)}\;
+
+	result \gets{CreateArray(0)}\;
+
+	subtractionPoint \gets{$point2 - point1$}\;
+
+	\If{(subtractionPoint.x = 0 and subtractionPoint.y = 0)}{ return
+		result\; }
+
+	\While{($subtractionPoint.x \neq 0$ and
+		$subtractionPoint.y \neq 0$}{ \If{$subtractionPoint.x \neq 0$}{
+			$subtractionPoint.x \gets subtractionPoint.x -
+				\frac{subtractionPoint.x}{abs(subtractionPoint.x)}$\;
+		}\If{$subtractionPoint.y \neq 0$}{
+			$subtractionPoint.y \gets subtractionPoint.y -
+				\frac{subtractionPoint.y}{abs(subtractionPoint.y)}$\; }
+		$result \gets AppendArray(result, subtractionPoint)$\; }
+
+	\KwResult{result}
+\end{algorithm}
+
 \newpage{}
 \section{Программа на языке программирования C++}
+
+Программа написана на языке программирования С++ с использованием
+элементов меню и библиотекой ncurses\cite{ПроектGNU1993-ncurses}. Для
+компиляции использовались: cmake\cite{Kitware2000-cmake}, make, clang,
+nix.
+
+Код функции для создания массива \verb|result|:
 
 \newpage{}
 \section{Тестовый пример}
@@ -240,6 +314,7 @@
 \section*{Заключение}
 \addcontentsline{toc}{section}{Заключение}
 
+\newpage{}
 \printbibliography[ heading=bibintoc, ]
 
 \end{document}

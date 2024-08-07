@@ -11,9 +11,10 @@
         pkgs = nixpkgs.legacyPackages.${system};
         tex = pkgs.texlive.combine {
           inherit (pkgs.texlive)
-            scheme-basic latex-bin latexmk babel babel-russian babel-english booktabs
-            etoolbox fontspec koma-script microtype pgf cmap hyphenat tocloft
-            biblatex biblatex-gost biber csquotes amsmath datetime fmtcount xkeyval multirow;
+            scheme-basic latex-bin latexmk babel babel-russian babel-english
+            booktabs etoolbox fontspec koma-script microtype pgf cmap hyphenat
+            tocloft biblatex biblatex-gost biber csquotes amsmath datetime
+            fmtcount xkeyval multirow algorithm2e ifoddpage relsize latexindent;
         };
       in rec {
         packages = {
