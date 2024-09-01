@@ -12,3 +12,5 @@ main.fdb_latexmk
 main.fls
 main.run.xml
 main.toc
+indent.log
+main.synctex.gz
