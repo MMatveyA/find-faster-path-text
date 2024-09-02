@@ -25,7 +25,7 @@
             phases = [ "unpackPhase" "buildPhase" "installPhase" ];
             SOURCE_DATE_EPOCH = self.sourceInfo.lastModified;
             buildPhase = ''
-              mkdir -p .cache/texmf-var
+              mkdir -p $TEXMFHOME
               latexmk -interaction=nonstopmode -pdf -lualatex main.tex
             '';
             env = {
@@ -45,11 +45,10 @@
             buildInputs =
               [ pkgs.coreutils pkgs.texliveFull pkgs.ispell pkgs.texlab ];
             phases = [ "unpackPhase" "buildPhase" "installPhase" ];
+            SOURCE_DATE_EPOCH = self.sourceInfo.lastModified;
             buildPhase = ''
-              export PATH="${pkgs.lib.makeBinPath buildInputs}";
-              mkdir -p .cache/texmf-var
-              env TEXMFHOME=.cache TEXMFVAR=.cache/texmf-var \
-                latexmk -interaction=nonstopmode -pdf -lualatex \
+              mkdir -p $TEXMFHOME
+              latexmk -interaction=nonstopmode -pdf -lualatex \
                 -pretex="\pdfvariable suppressoptionalinfo 512\relax" \
                 -usepretex main.tex
             '';
