@@ -14,3 +14,6 @@ main.run.xml
 main.toc
 indent.log
 main.synctex.gz
+_minted-main
+lualatex302926.fls
+main.lol

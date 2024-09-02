@@ -14,7 +14,8 @@
             scheme-basic latex-bin latexmk babel babel-russian babel-english
             booktabs etoolbox fontspec koma-script microtype pgf cmap hyphenat
             tocloft biblatex biblatex-gost biber csquotes amsmath datetime
-            fmtcount xkeyval multirow algorithm2e ifoddpage relsize latexindent;
+            fmtcount xkeyval multirow algorithm2e ifoddpage relsize latexindent
+            pdfpages pdflscape minted fancyvrb upquote listing;
         };
       in rec {
         packages = {
@@ -42,8 +43,7 @@
           develop = pkgs.stdenvNoCC.mkDerivation rec {
             name = "find-faster-path";
             src = self;
-            buildInputs =
-              [ pkgs.coreutils pkgs.texliveFull pkgs.ispell pkgs.texlab ];
+            buildInputs = [ pkgs.coreutils tex ];
             phases = [ "unpackPhase" "buildPhase" "installPhase" ];
             SOURCE_DATE_EPOCH = self.sourceInfo.lastModified;
             buildPhase = ''
