@@ -1,4 +1,5 @@
-\documentclass[toc=sectionentrywithdots]{scrartcl}
+\documentclass[chapterprefix=true,headings=onelineappendix]{scrartcl}
+\KOMAoptions{toc=sectionentrydotfill}
 
 \usepackage{fontspec}
 \setmainfont{Liberation Serif}
@@ -57,6 +58,20 @@
 \usepackage{listing}
 \usepackage{minted}
 \renewcommand{\listingname}{Листинг}
+
+\RedeclareSectionCommand[
+  beforeskip=2\baselineskip,% changed to a positive value, if afterindent=false is set (needs version 3.26b)
+  afterindent=false,% < - added, needs version 3.26b
+  afterskip=.5\baselineskip,
+  tocentrynumberformat=\def\autodot{.} % replace \autodot by a fixed dot for section entries
+   ]{section}
+
+\newcommand*\appendixmore{
+  \clearpage
+  \addsec{\appendixname}%
+  \renewcommand{\thesubsection}{\Alph{subsection}}%
+}
+
 \newcommand{\hunder}[1]{\underline{\hspace{#1}}}
 
 \begin{document}
@@ -423,7 +438,7 @@ llvm~\cite{LLVMFoundation2024}, nix~\cite{Долстра2003}.
 
 \newpage
 \appendix
-\section{Документация}\label{docs}
+\subsection{Документация}\label{docs}
 Далее представлена техническая документация, собранная на основе коментариев в
 исходном коде с помощью Doxygen. Для создания кода latex во время компиляции
 был использован следующий код:
