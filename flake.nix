@@ -1,10 +1,11 @@
 {
   description = "Нахождение кратчайшего пути";
   inputs = {
+    code = { url = "github:MMatveyA/find-faster-path-code"; };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, code, nixpkgs, flake-utils }:
     with flake-utils.lib;
     eachSystem allSystems (system:
       let
@@ -22,10 +23,11 @@
           document = pkgs.stdenvNoCC.mkDerivation rec {
             name = "lecture-notes-on-physics";
             src = self;
-            buildInputs = [ pkgs.coreutils tex ];
+            buildInputs = [ pkgs.coreutils tex pkgs.python3Packages.pygments ];
             phases = [ "unpackPhase" "buildPhase" "installPhase" ];
             SOURCE_DATE_EPOCH = self.sourceInfo.lastModified;
             buildPhase = ''
+              cp ${code.packages.${system}.default}/share/doc/refman.pdf .
               mkdir -p $TEXMFHOME
               latexmk -interaction=nonstopmode -pdf -lualatex main.tex
             '';
@@ -43,10 +45,11 @@
           develop = pkgs.stdenvNoCC.mkDerivation rec {
             name = "find-faster-path";
             src = self;
-            buildInputs = [ pkgs.coreutils tex ];
+            buildInputs = [ pkgs.coreutils tex pkgs.python3Packages.pygments ];
             phases = [ "unpackPhase" "buildPhase" "installPhase" ];
             SOURCE_DATE_EPOCH = self.sourceInfo.lastModified;
             buildPhase = ''
+              cp ${code.packages.${system}.default}/share/doc/refman.pdf .
               mkdir -p $TEXMFHOME
               latexmk -interaction=nonstopmode -pdf -lualatex \
                 -pretex="\pdfvariable suppressoptionalinfo 512\relax" \
