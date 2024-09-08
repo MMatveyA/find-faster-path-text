@@ -26,6 +26,7 @@
 
 \usepackage{tabularx}
 \newcolumntype{L}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 \usepackage{booktabs}
 \usepackage{multirow}
 
@@ -253,7 +254,7 @@ $h(x)$ была ещё и монотонной, или преемственно�
 
 \begin{table}[htpb]
 	\centering
-	\begin{tabularx}{\textwidth}[htpb]{l c L}
+	\begin{tabularx}{\textwidth}[htpb]{l C r}
 		\toprule
 		Название в задаче        & Тип                            & Смысловое понятие                                                \\
 		\toprule
@@ -261,10 +262,6 @@ $h(x)$ была ещё и монотонной, или преемственно�
 		\midrule
 		\verb|start|             & \verb|Vector2|                 & Координаты первой точки                                          \\
 		\verb|goal|              & \verb|Vector2|                 & Координаты второй точки                                          \\
-		\bottomrule
-		\multicolumn{3}{c}{Промежуточные данные}                                                                                     \\
-		\midrule
-		\verb|subtraction_point| & \verb|std::vector<uint, uint>| & Координаты точки, получившейся вычитанием из второй точки первой \\
 		\bottomrule
 		\multicolumn{3}{c}{Выходные данные}                                                                                          \\
 		\midrule
