@@ -6,11 +6,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1725664088,
-        "narHash": "sha256-x+wd8+iptUwUprNIThBMLFZkTpjn/XpD0uUxXKcTfEk=",
+        "lastModified": 1725999637,
+        "narHash": "sha256-Rh/4gyofKDQgVpYw/grnMl3g+by4VAUZKSqxx2nM6sk=",
         "owner": "MMatveyA",
         "repo": "find-faster-path-code",
-        "rev": "a87abcc33c79c18213a85307c20f0bd75022961c",
+        "rev": "888e025326aed6067c37fccdeb62b5a8052219a1",
         "type": "github"
       },
       "original": {
@@ -55,11 +55,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1718318537,
-        "narHash": "sha256-4Zu0RYRcAY/VWuu6awwq4opuiD//ahpc2aFHg2CWqFY=",
+        "lastModified": 1725634671,
+        "narHash": "sha256-v3rIhsJBOMLR8e/RNWxr828tB+WywYIoajrZKFM+0Gg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e9ee548d90ff586a6471b4ae80ae9cfcbceb3420",
+        "rev": "574d1eac1c200690e27b8eb4e24887f8df7ac27c",
         "type": "github"
       },
       "original": {
