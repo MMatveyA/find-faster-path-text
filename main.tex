@@ -433,37 +433,4 @@ llvm~\cite{LLVMFoundation2024}, nix~\cite{Долстра2003}.
 \newpage{}
 \printbibliography[ heading=bibintoc, ]
 
-\newpage
-\appendix
-\subsection{Документация}\label{docs}
-Далее представлена техническая документация, собранная на основе коментариев в
-исходном коде с помощью Doxygen. Для создания кода latex во время компиляции
-был использован следующий код:
-
-\begin{listing}[!ht]
-  \inputminted[
-  frame=lines,
-  framesep=2mm,
-  fontsize=\footnotesize,
-  ]{cmake}{./code/docs/CMakeLists.txt}
-  \caption{docs/CMakeLists.txt}\label{docs:cmake}
-\end{listing}
-
-Для сборки документации после генерации \verb|*.tex| файлов с помощью
-\verb|cmake| происходит с помощью команд, указанных в \verb|installPhase| в
-файле \verb|default.nix| (листинг~\ref{docs:nix}).
-
-\begin{listing}[H]
-  \inputminted[
-  firstline=13,
-  lastline=21,
-  frame=lines,
-  framesep=2mm,
-  fontsize=\footnotesize,
-  ]{nix}{./code/default.nix}
-  \caption{default.nix}\label{docs:nix}
-\end{listing}
-
-\includepdf[pages=-]{refman}
-
 \end{document}
