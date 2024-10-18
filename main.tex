@@ -1,0 +1,136 @@
+\documentclass[12pt,chapterprefix=true,headings=onelineappendix]{scrartcl}
+\KOMAoptions{toc=sectionentrydotfill}
+
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+% \setmonofont{Liberation Mono}
+\usepackage[main=russian,english]{babel}
+
+\usepackage[a4paper,top=20mm,bottom=30mm,left=20mm,right=20mm]{geometry}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=nty]{biblatex}
+\usepackage{csquotes}
+\addbibresource{external.bib}
+
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+
+\usepackage{amsfonts, amssymb, amsmath, microtype, multirow}
+
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage[ruled,vlined]{algorithm2e}
+\renewcommand{\algorithmcfname}{Алгоритм}
+\IncMargin{1em}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  filecolor=black,
+  urlcolor=black,
+  pdftitle={Нахождение быстрейшего пути},
+  pdfauthor={Максимов Матвей (C23-201-1)},
+}
+
+\usepackage{pdfpages}
+
+\usepackage{listing}
+\usepackage{caption}
+\captionsetup[listing]{name=Листинг}
+\usepackage{minted}
+\setminted{
+  frame=lines,
+  framesep=2mm,
+  baselinestretch=1.2,
+  fontsize=\scriptsize,
+  linenos
+}
+
+\renewcommand{\listingname}{Листинг}
+
+\RedeclareSectionCommand[
+  beforeskip=2\baselineskip,
+  afterindent=false,
+  afterskip=.5\baselineskip,
+  tocentrynumberformat=\def\autodot{.}
+   ]{section}
+
+\begin{document}
+\begin{titlepage}
+
+	\begin{center}
+		\uppercase{минобрнауки россии} \\
+		Федеральное государственное бюджетное образовательное
+		учреждение высшего образования \\
+		<<Ижевский государственный технический университет имени М.~Т.~Калашникова>> \\
+		Факультет <<Приборостроительный>>\\
+		Кафедра <<Радиотехника>>\\
+	\end{center}
+
+	\vfill
+
+	\begin{flushright}
+		\begin{tabularx}{0.4\textwidth}{X}
+			Работа защищена с оценкой \\
+			<<\hrulefill{}>>          \\
+			Дата \hrulefill{}         \\
+			Подпись \hrulefill{}/\hrulefill{}\hrulefill{}
+		\end{tabularx}
+	\end{flushright}
+
+	\vfill
+
+	\begin{center}
+		\textbf{Курсовая работа} \\
+		по дисциплине <<>> \\
+		Тема <<>> \\
+	\end{center}
+
+	\vfill
+
+	\begin{center}
+		\begin{tabularx}{0.95\textwidth}{X p{5.1cm} r}
+			Выполнил                                &                                                                                        &                 \\
+			Студент гр. С23-201-1                   & $\underset{\text{дата, подпись}}{\underline{\text{\today{}}\hspace{0.195\textwidth}}}$ & Максимов М. А.  \\
+			Проверил                                &                                                                                        &                 \\
+			к.п.н., доцент кафедры <<Радиотехника>> & $\underset{\text{дата, подпись}}{\underline{\hspace{0.3\textwidth}}}$                  &                \\
+		\end{tabularx}
+	\end{center}
+
+	\vfill
+	\begin{flushleft}
+		Рецензия:  \\
+		степень достижения поставленной цели работы \hrulefill{} \\
+		полнота разработки темы \hrulefill{ } \\
+		уровень самостоятельности работы обучающегося \hrulefill{} \\
+		недостатки работы \hrulefill{}\\
+	\end{flushleft}
+
+\end{titlepage}
+
+\tableofcontents
+
+\newpage{}
+\section*{Введение}
+\addcontentsline{toc}{section}{Введение}
+
+% Main section
+
+\newpage{}
+\section*{Заключение}
+\addcontentsline{toc}{section}{Заключение}
+
+\newpage
+\nocite{*}
+\printbibliography[heading=bibintoc]
+
+\end{document}
